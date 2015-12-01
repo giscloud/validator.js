@@ -382,7 +382,7 @@
   Assert.prototype = {
 
     construct: Assert,
-
+    element:null,
     requiresValidation: function ( group ) {
       if ( group && !this.hasGroup( group ) )
         return false;
@@ -391,6 +391,12 @@
         return false;
 
       return true;
+    },
+
+    domElement: function (el) {
+      if(el){
+        this.element = el;
+      }
     },
 
     check: function ( value, group ) {

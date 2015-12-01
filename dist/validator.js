@@ -1,7 +1,7 @@
 /*!
 * validator.js
 * Guillaume Potier - <guillaume@wisembly.com>
-* Version 1.2.3 - built Wed Oct 14 2015 10:01:02
+* Version 1.2.3 - built Tue Dec 01 2015 18:02:56
 * MIT Licensed
 *
 */
@@ -382,7 +382,7 @@
   Assert.prototype = {
 
     construct: Assert,
-
+    element:null,
     requiresValidation: function ( group ) {
       if ( group && !this.hasGroup( group ) )
         return false;
@@ -391,6 +391,12 @@
         return false;
 
       return true;
+    },
+
+    domElement: function (el) {
+      if(el){
+        this.element = el;
+      }
     },
 
     check: function ( value, group ) {
